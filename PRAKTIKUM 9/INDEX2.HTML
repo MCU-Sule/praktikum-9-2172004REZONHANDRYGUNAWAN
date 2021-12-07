@@ -1,0 +1,57 @@
+<html>
+    <head></head>
+    
+    <body>
+        <table border id="myTable">
+            <tr>
+              <td>Nama</td>
+              <td>Warna</td>
+            </tr>
+          </table>
+        <script>
+            var table = document.getElementById("myTable");
+
+const warna = [];
+const nama = [];
+let arrayInput=0;
+
+let temp=0;
+
+while (nama[arrayInput-1]!="stop") {
+  warna[arrayInput]=window.prompt("Masukkan warna kesukaan");
+  nama[arrayInput]=window.prompt("Masukkan nama");
+  
+  arrayInput++;
+}
+let cariWarna=window.prompt("Masukan warna yang ingin dicari");
+
+for (let i=1; i<nama.length; i++) {
+  row = table.insertRow(i);
+  
+  cell1 = row.insertCell(0);
+  cell1.innerHTML = nama[temp];
+  
+  cell2 = row.insertCell(1);
+  cell2.innerHTML = warna[temp];
+  
+  row.style.backgroundColor = warna[temp]; 
+  temp++;
+}
+let banyakOrang=0;
+let namaSuka="";
+
+for (let i=0; i<=warna.length; i++) {
+  if (warna[i]==cariWarna) {
+    namaSuka=namaSuka+" "+nama[i];
+    banyakOrang++
+  }
+}
+
+if (banyakOrang!=0) {
+  document.write("Ada "+banyakOrang+" orang yang menyukai warna "+cariWarna+" yaitu "+namaSuka);
+} else {
+  document.write("Tidak ada yang menyukai warna tersebut");
+}
+        </script>
+    </body>
+</html>
